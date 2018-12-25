@@ -1,9 +1,11 @@
 package tagliaferro.adriano.agoravai.Venda.endpoint
 
 import org.springframework.http.ResponseEntity
+import org.springframework.web.bind.annotation.RestController
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Cliente
 
+@RestController
 class ClienteEndpoint : Contract.Endpoint<Cliente> {
 
     override fun insert(obj: Cliente): ResponseEntity<Cliente> {

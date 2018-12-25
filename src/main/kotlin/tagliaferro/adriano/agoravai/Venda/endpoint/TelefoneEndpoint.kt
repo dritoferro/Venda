@@ -1,29 +1,27 @@
-package tagliaferro.adriano.agoravai.Venda.model
+package tagliaferro.adriano.agoravai.Venda.endpoint
 
-import org.springframework.stereotype.Repository
+import org.springframework.http.ResponseEntity
 import tagliaferro.adriano.agoravai.Venda.Contract
-import tagliaferro.adriano.agoravai.Venda.domain.Cliente
+import tagliaferro.adriano.agoravai.Venda.domain.Telefone
 
-@Repository
-class ClienteModel : Contract.Model<Cliente> {
-
-    override fun insert(obj: Cliente) {
+class TelefoneEndpoint : Contract.Endpoint<Telefone> {
+    override fun insert(obj: Telefone): ResponseEntity<Telefone> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun update(obj: Cliente, id: Int) {
+    override fun update(obj: Telefone, id: Int): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getById(id: Int): Cliente {
+    override fun getById(id: Int): Telefone {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAll(): List<Cliente> {
+    override fun getAll(): List<Telefone> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun delete(id: Int) {
+    override fun delete(id: Int): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

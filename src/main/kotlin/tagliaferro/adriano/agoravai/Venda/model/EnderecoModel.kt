@@ -1,25 +1,22 @@
 package tagliaferro.adriano.agoravai.Venda.model
 
-import org.springframework.stereotype.Repository
 import tagliaferro.adriano.agoravai.Venda.Contract
-import tagliaferro.adriano.agoravai.Venda.domain.Cliente
+import tagliaferro.adriano.agoravai.Venda.domain.Endereco
 
-@Repository
-class ClienteModel : Contract.Model<Cliente> {
-
-    override fun insert(obj: Cliente) {
+class EnderecoModel : Contract.Model<Endereco> {
+    override fun insert(obj: Endereco) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun update(obj: Cliente, id: Int) {
+    override fun update(obj: Endereco, id: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getById(id: Int): Cliente {
+    override fun getById(id: Int): Endereco {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAll(): List<Cliente> {
+    override fun getAll(): List<Endereco> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -1,9 +1,11 @@
 package tagliaferro.adriano.agoravai.Venda.service
 
 import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Service
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Cliente
 
+@Service
 class ClienteService : Contract.Service<Cliente> {
 
     override fun insert(obj: Cliente): ResponseEntity<Cliente> {
