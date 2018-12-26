@@ -1,26 +1,52 @@
 package tagliaferro.adriano.agoravai.Venda.model
 
+import org.springframework.beans.factory.annotation.Autowired
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Pedido
+import tagliaferro.adriano.agoravai.Venda.repository.PedidoRepository
 
 class PedidoModel : Contract.Model<Pedido> {
+
+    @Autowired
+    private lateinit var repo: PedidoRepository
+
     override fun insert(obj: Pedido) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun update(obj: Pedido, id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(obj: Pedido) {
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getById(id: Int): Pedido {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            return repo.findById(id).get()
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getAll(): List<Pedido> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            val pedidos = ArrayList<Pedido>()
+
+            repo.findAll().map { it -> pedidos.add(it) }
+
+            return pedidos
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun delete(id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        repo.deleteById(id)
     }
 }

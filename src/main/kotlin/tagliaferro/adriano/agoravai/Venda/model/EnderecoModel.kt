@@ -1,26 +1,56 @@
 package tagliaferro.adriano.agoravai.Venda.model
 
+import org.springframework.beans.factory.annotation.Autowired
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Endereco
+import tagliaferro.adriano.agoravai.Venda.repository.EnderecoRepository
 
 class EnderecoModel : Contract.Model<Endereco> {
+
+    @Autowired
+    private lateinit var repo: EnderecoRepository
+
     override fun insert(obj: Endereco) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun update(obj: Endereco, id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(obj: Endereco) {
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getById(id: Int): Endereco {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            return repo.findById(id).get()
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getAll(): List<Endereco> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            val enderecos = ArrayList<Endereco>()
+
+            repo.findAll().map { it -> enderecos.add(it) }
+
+            return enderecos
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun delete(id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            repo.deleteById(id)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 }

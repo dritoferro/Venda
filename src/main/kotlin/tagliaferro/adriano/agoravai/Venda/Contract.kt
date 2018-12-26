@@ -6,7 +6,7 @@ interface Contract {
 
     interface Model<T> {
         fun insert(obj: T)
-        fun update(obj: T, id: Int)
+        fun update(obj: T)
         fun getById(id: Int): T
         fun getAll(): List<T>
         fun delete(id: Int)

@@ -1,26 +1,56 @@
 package tagliaferro.adriano.agoravai.Venda.model
 
+import org.springframework.beans.factory.annotation.Autowired
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Venda_Final
+import tagliaferro.adriano.agoravai.Venda.repository.VendaFinalRepository
 
 class Venda_FinalModel : Contract.Model<Venda_Final> {
+
+    @Autowired
+    private lateinit var repo: VendaFinalRepository
+
     override fun insert(obj: Venda_Final) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun update(obj: Venda_Final, id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun update(obj: Venda_Final) {
+        try {
+            repo.save(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getById(id: Int): Venda_Final {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            return repo.findById(id).get()
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun getAll(): List<Venda_Final> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            val vendas = ArrayList<Venda_Final>()
+
+            repo.findAll().map { it -> vendas.add(it) }
+
+            return vendas
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
     override fun delete(id: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        try {
+            repo.deleteById(id)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 }

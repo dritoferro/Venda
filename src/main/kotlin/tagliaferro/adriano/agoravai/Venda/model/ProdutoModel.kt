@@ -2,15 +2,15 @@ package tagliaferro.adriano.agoravai.Venda.model
 
 import org.springframework.beans.factory.annotation.Autowired
 import tagliaferro.adriano.agoravai.Venda.Contract
-import tagliaferro.adriano.agoravai.Venda.domain.Item_Pedido
-import tagliaferro.adriano.agoravai.Venda.repository.ItemPedidoRepository
+import tagliaferro.adriano.agoravai.Venda.domain.Produto
+import tagliaferro.adriano.agoravai.Venda.repository.ProdutoRepository
 
-class Item_PedidoModel : Contract.Model<Item_Pedido> {
+class ProdutoModel : Contract.Model<Produto> {
 
     @Autowired
-    private lateinit var repo: ItemPedidoRepository
+    private lateinit var repo: ProdutoRepository
 
-    override fun insert(obj: Item_Pedido) {
+    override fun insert(obj: Produto) {
         try {
             repo.save(obj)
         } catch (e: Exception) {
@@ -18,7 +18,7 @@ class Item_PedidoModel : Contract.Model<Item_Pedido> {
         }
     }
 
-    override fun update(obj: Item_Pedido) {
+    override fun update(obj: Produto) {
         try {
             repo.save(obj)
         } catch (e: Exception) {
@@ -26,7 +26,7 @@ class Item_PedidoModel : Contract.Model<Item_Pedido> {
         }
     }
 
-    override fun getById(id: Int): Item_Pedido {
+    override fun getById(id: Int): Produto {
         try {
             return repo.findById(id).get()
         } catch (e: Exception) {
@@ -34,13 +34,13 @@ class Item_PedidoModel : Contract.Model<Item_Pedido> {
         }
     }
 
-    override fun getAll(): List<Item_Pedido> {
+    override fun getAll(): List<Produto> {
         try {
-            val itensPedidos = ArrayList<Item_Pedido>()
+            val produtos = ArrayList<Produto>()
 
-            repo.findAll().map { it -> itensPedidos.add(it) }
+            repo.findAll().map { it -> produtos.add(it) }
 
-            return itensPedidos
+            return produtos
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
