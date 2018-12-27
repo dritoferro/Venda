@@ -10,9 +10,9 @@ class Item_PedidoModel : Contract.Model<Item_Pedido> {
     @Autowired
     private lateinit var repo: ItemPedidoRepository
 
-    override fun insert(obj: Item_Pedido) {
+    override fun insert(obj: Item_Pedido): Item_Pedido {
         try {
-            repo.save(obj)
+            return repo.save(obj)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

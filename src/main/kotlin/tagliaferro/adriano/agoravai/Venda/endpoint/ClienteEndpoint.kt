@@ -1,31 +1,62 @@
 package tagliaferro.adriano.agoravai.Venda.endpoint
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Cliente
+import tagliaferro.adriano.agoravai.Venda.service.ClienteService
 
 @RestController
+@RequestMapping(value = ["/v1/cliente"])
 class ClienteEndpoint : Contract.Endpoint<Cliente> {
 
-    override fun insert(obj: Cliente): ResponseEntity<Cliente> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @Autowired
+    private lateinit var cliente: ClienteService
+
+    @PostMapping
+    override fun insert(@RequestBody obj: Cliente): ResponseEntity<Unit> {
+        try {
+            return cliente.insert(obj)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun update(obj: Cliente, id: Int): ResponseEntity<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @PutMapping(value = ["/{id}"])
+    override fun update(@RequestBody obj: Cliente, @PathVariable id: Int): ResponseEntity<Unit> {
+        try {
+            return cliente.update(obj, id)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun getById(id: Int): Cliente {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @GetMapping(value = ["/{id}"])
+    override fun getById(@PathVariable id: Int): ResponseEntity<Cliente> {
+        try {
+            return cliente.getById(id)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun getAll(): List<Cliente> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @GetMapping
+    override fun getAll(): ResponseEntity<List<Cliente>> {
+        try {
+            return cliente.getAll()
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
-    override fun delete(id: Int): ResponseEntity<Unit> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    @DeleteMapping(value = ["/{id}"])
+    override fun delete(@PathVariable id: Int): ResponseEntity<Unit> {
+        try {
+            return cliente.delete(id)
+        } catch (e: Exception) {
+            throw RuntimeException(e)
+        }
     }
 
 

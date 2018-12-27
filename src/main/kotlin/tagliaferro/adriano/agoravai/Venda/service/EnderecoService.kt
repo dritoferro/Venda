@@ -5,7 +5,8 @@ import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Endereco
 
 class EnderecoService : Contract.Service<Endereco> {
-    override fun insert(obj: Endereco): ResponseEntity<Endereco> {
+
+    override fun insert(obj: Endereco): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -13,11 +14,11 @@ class EnderecoService : Contract.Service<Endereco> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getById(id: Int): Endereco {
+    override fun getById(id: Int): ResponseEntity<Endereco> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAll(): List<Endereco> {
+    override fun getAll(): ResponseEntity<List<Endereco>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

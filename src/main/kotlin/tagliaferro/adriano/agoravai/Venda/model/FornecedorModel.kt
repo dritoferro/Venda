@@ -10,9 +10,9 @@ class FornecedorModel : Contract.Model<Fornecedor> {
     @Autowired
     private lateinit var repo: FornecedorRepository
 
-    override fun insert(obj: Fornecedor) {
+    override fun insert(obj: Fornecedor): Fornecedor {
         try {
-            repo.save(obj)
+            return repo.save(obj)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

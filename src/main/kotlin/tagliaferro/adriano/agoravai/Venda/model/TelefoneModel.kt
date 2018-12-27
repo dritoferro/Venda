@@ -10,9 +10,9 @@ class TelefoneModel : Contract.Model<Telefone> {
     @Autowired
     private lateinit var repo: TelefoneRepository
 
-    override fun insert(obj: Telefone) {
+    override fun insert(obj: Telefone): Telefone {
         try {
-            repo.save(obj)
+            return repo.save(obj)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

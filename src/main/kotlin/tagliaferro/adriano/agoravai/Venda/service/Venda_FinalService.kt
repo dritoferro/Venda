@@ -5,7 +5,7 @@ import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Venda_Final
 
 class Venda_FinalService : Contract.Service<Venda_Final> {
-    override fun insert(obj: Venda_Final): ResponseEntity<Venda_Final> {
+    override fun insert(obj: Venda_Final): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -13,11 +13,11 @@ class Venda_FinalService : Contract.Service<Venda_Final> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getById(id: Int): Venda_Final {
+    override fun getById(id: Int): ResponseEntity<Venda_Final> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAll(): List<Venda_Final> {
+    override fun getAll(): ResponseEntity<List<Venda_Final>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

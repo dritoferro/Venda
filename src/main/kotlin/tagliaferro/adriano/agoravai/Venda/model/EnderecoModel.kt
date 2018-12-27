@@ -10,9 +10,9 @@ class EnderecoModel : Contract.Model<Endereco> {
     @Autowired
     private lateinit var repo: EnderecoRepository
 
-    override fun insert(obj: Endereco) {
+    override fun insert(obj: Endereco): Endereco {
         try {
-            repo.save(obj)
+            return repo.save(obj)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }

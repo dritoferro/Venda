@@ -5,7 +5,7 @@ import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Fornecedor
 
 class FornecedorEndpoint : Contract.Endpoint<Fornecedor> {
-    override fun insert(obj: Fornecedor): ResponseEntity<Fornecedor> {
+    override fun insert(obj: Fornecedor): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
@@ -13,11 +13,11 @@ class FornecedorEndpoint : Contract.Endpoint<Fornecedor> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getById(id: Int): Fornecedor {
+    override fun getById(id: Int): ResponseEntity<Fornecedor> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun getAll(): List<Fornecedor> {
+    override fun getAll(): ResponseEntity<List<Fornecedor>> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
