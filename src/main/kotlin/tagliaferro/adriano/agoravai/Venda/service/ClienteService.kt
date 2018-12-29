@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Cliente
+import tagliaferro.adriano.agoravai.Venda.exception.ResourceNotFoundException
+import tagliaferro.adriano.agoravai.Venda.exception.ResourceWithoutIdException
 import tagliaferro.adriano.agoravai.Venda.model.ClienteModel
 
 @Service
@@ -28,14 +30,14 @@ class ClienteService : Contract.Service<Cliente> {
         }
     }
 
-    override fun update(obj: Cliente, id: Int): ResponseEntity<Unit> {
+    override fun update(obj: Cliente): ResponseEntity<Unit> {
         try {
-            val cliente = model.getById(id)
-            if (cliente._id != null) {
+            if (obj._id != null) {
+                checkExists(obj._id)
                 model.update(obj)
                 return ResponseEntity.ok().build()
             } else {
-                return ResponseEntity.badRequest().build()
+                throw ResourceWithoutIdException()
             }
         } catch (e: Exception) {
             throw RuntimeException(e)
@@ -44,12 +46,9 @@ class ClienteService : Contract.Service<Cliente> {
 
     override fun getById(id: Int): ResponseEntity<Cliente> {
         try {
+            checkExists(id)
             val cliente = model.getById(id)
-            if (cliente._id != null) {
-                return ResponseEntity.ok(cliente)
-            } else {
-                return ResponseEntity.badRequest().build()
-            }
+            return ResponseEntity.ok(cliente)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
@@ -66,15 +65,21 @@ class ClienteService : Contract.Service<Cliente> {
 
     override fun delete(id: Int): ResponseEntity<Unit> {
         try {
+            checkExists(id)
             model.delete(id)
-            val cliente = model.getById(id)
-            if (cliente._id == null) {
+            if (model.getById(id)._id == null) {
                 return ResponseEntity.ok().build()
             } else {
                 return ResponseEntity.badRequest().build()
             }
         } catch (e: Exception) {
             throw RuntimeException(e)
+        }
+    }
+
+    override fun checkExists(id: Int) {
+        if (model.getById(id)._id == null) {
+            throw ResourceNotFoundException("Cliente não encontrado")
         }
     }
 }

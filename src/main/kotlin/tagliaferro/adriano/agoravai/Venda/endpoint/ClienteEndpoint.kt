@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.*
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Cliente
 import tagliaferro.adriano.agoravai.Venda.service.ClienteService
+import javax.validation.Valid
 
 @RestController
 @RequestMapping(value = ["/v1/cliente"])
@@ -15,7 +16,7 @@ class ClienteEndpoint : Contract.Endpoint<Cliente> {
     private lateinit var cliente: ClienteService
 
     @PostMapping
-    override fun insert(@RequestBody obj: Cliente): ResponseEntity<Unit> {
+    override fun insert(@Valid @RequestBody obj: Cliente): ResponseEntity<Unit> {
         try {
             return cliente.insert(obj)
         } catch (e: Exception) {

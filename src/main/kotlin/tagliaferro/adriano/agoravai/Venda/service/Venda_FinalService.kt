@@ -9,7 +9,7 @@ class Venda_FinalService : Contract.Service<Venda_Final> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun update(obj: Venda_Final, id: Int): ResponseEntity<Unit> {
+    override fun update(obj: Venda_Final): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

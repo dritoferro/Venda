@@ -12,7 +12,7 @@ class ClienteModel : Contract.Model<Cliente> {
     @Autowired
     private lateinit var repo: ClienteRepository
 
-    override fun insert(obj: Cliente) : Cliente{
+    override fun insert(obj: Cliente): Cliente {
         try {
             val reto = repo.save(obj)
             return reto

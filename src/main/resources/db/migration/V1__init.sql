@@ -51,6 +51,7 @@ CREATE TABLE PRODUTO(
     fornecedor_id INT NOT NULL,
     quantidade INT NOT NULL,
     preco DOUBLE NOT NULL,
+    status BOOLEAN NOT NULL,
     PRIMARY KEY(_id),
     FOREIGN KEY(fornecedor_id) REFERENCES FORNECEDOR(_id)
 );

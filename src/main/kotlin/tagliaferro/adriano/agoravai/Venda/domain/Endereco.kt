@@ -1,7 +1,7 @@
 package tagliaferro.adriano.agoravai.Venda.domain
 
 data class Endereco(
-        val _id : Int,
+        val _id : Int?,
         val endereco_rua : String,
         val endereco_num : Int,
         val endereco_comp : String,

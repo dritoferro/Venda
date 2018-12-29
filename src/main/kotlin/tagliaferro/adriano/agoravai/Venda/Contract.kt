@@ -22,9 +22,10 @@ interface Contract {
 
     interface Service<T> {
         fun insert(obj: T): ResponseEntity<Unit>
-        fun update(obj: T, id: Int): ResponseEntity<Unit>
+        fun update(obj: T): ResponseEntity<Unit>
         fun getById(id: Int): ResponseEntity<T>
         fun getAll(): ResponseEntity<List<T>>
         fun delete(id: Int): ResponseEntity<Unit>
+        fun checkExists(id : Int)
     }
 }
