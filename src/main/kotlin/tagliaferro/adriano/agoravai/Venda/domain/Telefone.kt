@@ -1,5 +1,8 @@
 package tagliaferro.adriano.agoravai.Venda.domain
 
+import javax.persistence.Entity
+
+@Entity
 data class Telefone(
         val _id : Int,
         val telefone_celular : String,

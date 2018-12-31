@@ -1,7 +1,9 @@
 package tagliaferro.adriano.agoravai.Venda.domain
 
 import java.time.LocalDate
+import javax.persistence.Entity
 
+@Entity
 data class Venda_Final(
         val _id : Int,
         val pedido_id : Pedido,

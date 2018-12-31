@@ -3,12 +3,15 @@ package tagliaferro.adriano.agoravai.Venda.service
 import org.elasticsearch.ResourceNotFoundException
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.ResponseEntity
+import org.springframework.stereotype.Service
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Endereco
+import tagliaferro.adriano.agoravai.Venda.exception.ResourceAlreadyExistsException
 import tagliaferro.adriano.agoravai.Venda.exception.ResourceWithoutIdException
 import tagliaferro.adriano.agoravai.Venda.model.EnderecoModel
 
+@Service
 class EnderecoService : Contract.Service<Endereco> {
 
     @Autowired
@@ -16,12 +19,16 @@ class EnderecoService : Contract.Service<Endereco> {
 
     override fun insert(obj: Endereco): ResponseEntity<Unit> {
         try {
-            val success = model.insert(obj)
-            if (success._id != null) {
-                val uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(success._id).toUri()
-                return ResponseEntity.created(uri).build()
+            if (obj._id == null) {
+                val success = model.insert(obj)
+                if (success._id != null) {
+                    val uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(success._id).toUri()
+                    return ResponseEntity.created(uri).build()
+                } else {
+                    return ResponseEntity.badRequest().build()
+                }
             } else {
-                return ResponseEntity.badRequest().build()
+                throw ResourceAlreadyExistsException()
             }
         } catch (e: Exception) {
             throw RuntimeException(e)
@@ -69,12 +76,12 @@ class EnderecoService : Contract.Service<Endereco> {
         try {
             checkExists(id)
             model.delete(id)
-            if(model.getById(id)._id == null){
+            if (model.getById(id)._id == null) {
                 return ResponseEntity.ok().build()
-            } else{
+            } else {
                 return ResponseEntity.badRequest().build()
             }
-        }catch (e : Exception){
+        } catch (e: Exception) {
             throw RuntimeException(e)
         }
     }

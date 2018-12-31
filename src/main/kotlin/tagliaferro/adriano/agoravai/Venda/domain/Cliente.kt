@@ -30,6 +30,7 @@ data class Cliente(
         @NotEmpty(message = "Telefone must not be null")
         val telefone_id: Int,
 
+        @NotNull
         @Email(message = "Email must not be null", regexp = "*@*.*")
         val email: String
 )

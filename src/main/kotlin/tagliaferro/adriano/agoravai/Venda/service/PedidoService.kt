@@ -24,4 +24,8 @@ class PedidoService : Contract.Service<Pedido> {
     override fun delete(id: Int): ResponseEntity<Unit> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun checkExists(id: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 }
