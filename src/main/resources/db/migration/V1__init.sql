@@ -12,10 +12,10 @@ CREATE TABLE ENDERECO(
 
 CREATE TABLE TELEFONE(
     _id INT NOT NULL AUTO_INCREMENT,
-    telefone_celular VARCHAR(15) NOT NULL,
-    telefone_residencial VARCHAR(15),
-    telefone_comercial VARCHAR(15),
-    telefone_recados VARCHAR(15),
+    telefone_01 VARCHAR(15) NOT NULL,
+    telefone_02 VARCHAR(15),
+    telefone_03 VARCHAR(15),
+    telefone_04 VARCHAR(15),
     PRIMARY KEY(_id)
 );
 

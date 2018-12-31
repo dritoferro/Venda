@@ -1,12 +1,23 @@
 package tagliaferro.adriano.agoravai.Venda.domain
 
 import javax.persistence.Entity
+import javax.persistence.GeneratedValue
+import javax.persistence.GenerationType
+import javax.persistence.Id
+import javax.validation.constraints.NotNull
 
 @Entity
 data class Telefone(
-        val _id : Int,
-        val telefone_celular : String,
-        val telefone_residencial : String,
-        val telefone_comercial : String,
-        val telefone_recados : String
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        val _id: Int,
+
+        @NotNull(message = "At least one phone number is necessary")
+        val telefone_01: String,
+
+        val telefone_02: String,
+
+        val telefone_03: String,
+
+        val telefone_04: String
 )
