@@ -27,7 +27,7 @@ class ClienteEndpoint : Contract.Endpoint<Cliente> {
     @PutMapping(value = ["/{id}"])
     override fun update(@RequestBody obj: Cliente, @PathVariable id: Int): ResponseEntity<Unit> {
         try {
-            return cliente.update(obj, id)
+            return cliente.update(obj)
         } catch (e: Exception) {
             throw RuntimeException(e)
         }
