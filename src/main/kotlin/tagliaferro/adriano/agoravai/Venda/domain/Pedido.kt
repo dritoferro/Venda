@@ -15,7 +15,7 @@ data class Pedido(
         val _id: Int,
 
         @NotNull(message = "A list of itens must be informed")
-        val item_pedido_id: List<Int>,
+        val item_pedido_id: ArrayList<Int>,
 
         @NotEmpty(message = "A total price is necessary")
         val total: Double,

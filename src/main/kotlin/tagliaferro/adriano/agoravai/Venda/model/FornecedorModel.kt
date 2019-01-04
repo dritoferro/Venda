@@ -1,10 +1,12 @@
 package tagliaferro.adriano.agoravai.Venda.model
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.stereotype.Repository
 import tagliaferro.adriano.agoravai.Venda.Contract
 import tagliaferro.adriano.agoravai.Venda.domain.Fornecedor
 import tagliaferro.adriano.agoravai.Venda.repository.FornecedorRepository
 
+@Repository
 class FornecedorModel : Contract.Model<Fornecedor> {
 
     @Autowired
