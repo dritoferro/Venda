@@ -13,18 +13,18 @@ data class Produto(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val _id: Int,
 
-        @NotNull(message = "A description must be informed")
+        @field:NotNull(message = "A description must be informed")
         val descricao: String,
 
-        @NotEmpty(message = "A fornecedor id must be informed")
+        @field:NotEmpty(message = "A fornecedor id must be informed")
         val fornecedor_id: Int,
 
-        @NotEmpty(message = "A quantity must be informed")
+        @field:NotEmpty(message = "A quantity must be informed")
         val quantidade: Int,
 
-        @NotEmpty(message = "A price must be informed")
+        @field:NotEmpty(message = "A price must be informed")
         val preco: Double,
 
-        @NotEmpty(message = "A status must be informed")
+        @field:NotEmpty(message = "A status must be informed")
         val status: Boolean
 )

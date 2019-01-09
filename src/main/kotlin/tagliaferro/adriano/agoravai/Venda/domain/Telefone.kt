@@ -12,7 +12,7 @@ data class Telefone(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val _id: Int,
 
-        @NotNull(message = "At least one phone number is necessary")
+        @field:NotNull(message = "At least one phone number is necessary")
         val telefone_01: String,
 
         val telefone_02: String,

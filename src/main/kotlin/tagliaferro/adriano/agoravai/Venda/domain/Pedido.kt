@@ -14,12 +14,12 @@ data class Pedido(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val _id: Int,
 
-        @NotNull(message = "A list of itens must be informed")
+        @field:NotNull(message = "A list of itens must be informed")
         val item_pedido_id: ArrayList<Int>,
 
-        @NotEmpty(message = "A total price is necessary")
+        @field:NotEmpty(message = "A total price is necessary")
         val total: Double,
 
-        @NotNull(message = "The date must be informed")
+        @field:NotNull(message = "The date must be informed")
         val data_pedido: LocalDate
 )

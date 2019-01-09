@@ -14,32 +14,32 @@ data class Venda_Final(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val _id: Int,
 
-        @NotEmpty(message = "A pedido id is necessary")
+        @field:NotEmpty(message = "A pedido id is necessary")
         val pedido_id: Int,
 
         val cliente_id: Int,
 
-        @NotEmpty(message = "A total is necessary")
+        @field:NotEmpty(message = "A total is necessary")
         val total: Double,
 
-        @NotEmpty(message = "A descount is necessary")
+        @field:NotEmpty(message = "A descount is necessary")
         val desconto: Double,
 
-        @NotEmpty(message = "A total paid is necessary")
+        @field:NotEmpty(message = "A total paid is necessary")
         val valor_pago: Double,
 
-        @NotEmpty(message = "A change is necessary")
+        @field:NotEmpty(message = "A change is necessary")
         val valor_troco: Double,
 
-        @NotNull(message = "A date is necessary")
+        @field:NotNull(message = "A date is necessary")
         val data_venda: LocalDate,
 
-        @NotNull(message = "A payment format is necessary")
+        @field:NotNull(message = "A payment format is necessary")
         val forma_pagamento: String,
 
-        @NotEmpty(message = "A quantity of payments is necessary")
+        @field:NotEmpty(message = "A quantity of payments is necessary")
         val quantidade_parcela: Int,
 
-        @NotEmpty(message = "A value of each payment is necessary")
+        @field:NotEmpty(message = "A value of each payment is necessary")
         val valor_parcela: Double
 )

@@ -14,22 +14,22 @@ data class Fornecedor(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         val _id: Int?,
 
-        @NotNull(message = "A razao social is necessary")
+        @field:NotNull(message = "A razao social is necessary")
         val razao_social: String,
 
-        @NotNull(message = "A nome fantasia is necessary")
+        @field:NotNull(message = "A nome fantasia is necessary")
         val nome_fantasia: String,
 
-        @NotNull(message = "A cnpj is necessary")
+        @field:NotNull(message = "A cnpj is necessary")
         val cnpj: String,
 
-        @NotEmpty(message = "A neighborhood is necessary")
+        @field:NotEmpty(message = "A neighborhood is necessary")
         val endereco_id: Int,
 
-        @NotEmpty(message = "A telefone is necessary")
+        @field:NotEmpty(message = "A telefone is necessary")
         val telefone_id: Int,
 
-        @NotNull(message = "An email address is necessary")
-        @Email
+        @field:NotNull(message = "An email address is necessary")
+        @field:Email
         val email: String
 )
